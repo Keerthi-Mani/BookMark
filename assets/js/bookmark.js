@@ -51,5 +51,17 @@ var regex = new RegExp(expression);
 function fetchBookmarks() {
   //Get bookmarks from LocalStorage
   var bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-  console.log(bookmarks);
+  //   console.log(bookmarks);
+
+  //Get Output Id
+  var bookmarksResults = document.getElementById("bookmarksResults").innerHTML;
+
+  //Build output
+  bookmarksResults = "";
+  for (var i = 0; i < bookmarks.length; i++) {
+    var name = bookmarks[i].name;
+    var url = bookmarks[i].url;
+    console.log("NAME :" + name);
+    console.log("URL :" + url);
+  }
 }
