@@ -1,16 +1,15 @@
 // Listen for submit form
-var Submit = document.getElementById("myForm");
-Submit.addEventListener("submit", saveBookMark);
-
+document.getElementById("myForm").addEventListener("submit", saveBookMark);
+var WebSiteName;
+var WebSiteUrl;
 //Save BookMark
-function saveBookMark() {
+function saveBookMark(e) {
+  e.preventDefault();
   //Get input from form values
-  var WebSiteName = document.getElementById("websiteName").value;
-  var WebSiteUrl = document.getElementById("websiteUrl").value;
-
-  if (!validateForm(WebSiteName, WebSiteUrl)) {
-    return false;
-  }
+  WebSiteName = document.getElementById("websiteName").value;
+  WebSiteUrl = document.getElementById("websiteUrl").value;
+  //   console.log(WebSiteName);
+  //   console.log(WebSiteUrl);
 }
 
 var bookmark = {
@@ -18,5 +17,9 @@ var bookmark = {
   url: WebSiteUrl
 };
 
+//Regex Expression
+var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+var regex = new RegExp(expression);
+
 //Clear Form
-Submit.reset();
+document.getElementById("myForm").reset();
