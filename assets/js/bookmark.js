@@ -32,11 +32,17 @@ function saveBookMark(e) {
     bookmarks.push(bookmark);
     // Set to localStorage
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  } else {
+    //Get bookmarks from LocalStorage
+    var bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    // add bookmark to array
+    bookmarks.push(bookmark);
+    //Re-set back to localStorage
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
+  //Clear Form
+  document.getElementById("myForm").reset();
 }
 //Regex Expression
 var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 var regex = new RegExp(expression);
-
-//Clear Form
-document.getElementById("myForm").reset();
