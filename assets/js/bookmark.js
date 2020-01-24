@@ -16,6 +16,12 @@ function saveBookMark(e) {
     url: WebSiteUrl
   };
   //   console.log(bookmark);
+
+  //Local Storage Test
+  //   localStorage.setItem("test", "Hello World");
+  //   console.log(localStorage.getItem("test"));
+  //   localStorage.removeItem("test");
+  //   console.log(localStorage.getItem("test"));
 }
 //Regex Expression
 var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
