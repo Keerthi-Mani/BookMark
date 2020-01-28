@@ -12,6 +12,12 @@ function saveBookMark(e) {
   //   console.log(WebSiteName);
   //   console.log(WebSiteUrl);
 
+  //Validation
+  if (!WebSiteName || !WebSiteUrl) {
+    alert("Please fill in the form");
+    return false;
+  }
+
   var bookmark = {
     name: WebSiteName,
     url: WebSiteUrl
