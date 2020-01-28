@@ -54,14 +54,16 @@ function fetchBookmarks() {
   //   console.log(bookmarks);
 
   //Get Output Id
-  var bookmarksResults = document.getElementById("bookmarksResults").innerHTML;
+  var bookmarksResults = document.getElementById("bookmarksResults");
 
   //Build output
-  bookmarksResults = "";
+  bookmarksResults.innerHTML = "";
   for (var i = 0; i < bookmarks.length; i++) {
     var name = bookmarks[i].name;
     var url = bookmarks[i].url;
-    console.log("NAME :" + name);
-    console.log("URL :" + url);
+    //     console.log("NAME :" + name);
+    //     console.log("URL :" + url);
+    bookmarksResults.innerHTML +=
+      '<div class="well">' + "<h3>" + name + "<h3>" + "</div>";
   }
 }
