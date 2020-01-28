@@ -64,6 +64,16 @@ function fetchBookmarks() {
     //     console.log("NAME :" + name);
     //     console.log("URL :" + url);
     bookmarksResults.innerHTML +=
-      '<div class="well">' + "<h3>" + name + "<h3>" + "</div>";
+      '<div class="well">' +
+      "<h3>" +
+      name +
+      '<a class="btn btn-success" target="_blank" href="' +
+      url +
+      '">Visit </a>' +
+      "<a onclick=\"deleteBookmark('" +
+      url +
+      '\')" class="btn btn-danger" target="_blank" href="#">Delete </a>' +
+      "<h3>" +
+      "</div>";
   }
 }
