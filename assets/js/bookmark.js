@@ -42,10 +42,32 @@ function saveBookMark(e) {
   }
   //Clear Form
   document.getElementById("myForm").reset();
+
+  //Re-fectch bookamrks
+  fetchBookmarks();
 }
 //Regex Expression
 var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 var regex = new RegExp(expression);
+
+//Delete Bookmark
+function deleteBookmark(url) {
+  // console.log(url);
+  //Get bookmarks from localStorage
+  var bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+  //Loop through bookmarks
+  for (var i = 0; i < bookmarks.length; i++) {
+    if (bookmarks[i].url == url) {
+      //Remove from array
+      bookmarks.splice(i, 1);
+    }
+  }
+  //Re-set back to localStorage
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+  //Re-fectch bookamrks
+  fetchBookmarks();
+}
 
 //Fetch Bookmarks
 function fetchBookmarks() {
@@ -72,7 +94,7 @@ function fetchBookmarks() {
       '">Visit </a>' +
       "<a onclick=\"deleteBookmark('" +
       url +
-      '\')" class="btn btn-danger" target="_blank" href="#">Delete </a>' +
+      '\')" class="btn btn-danger" href="#">Delete </a>' +
       "<h3>" +
       "</div>";
   }
