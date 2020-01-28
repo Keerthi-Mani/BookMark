@@ -18,6 +18,15 @@ function saveBookMark(e) {
     return false;
   }
 
+  //Regex Expression
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+
+  if (!WebSiteUrl.match(regex)) {
+    alert("Please use a valid URL");
+    return false;
+  }
+
   var bookmark = {
     name: WebSiteName,
     url: WebSiteUrl
@@ -52,9 +61,6 @@ function saveBookMark(e) {
   //Re-fectch bookamrks
   fetchBookmarks();
 }
-//Regex Expression
-var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-var regex = new RegExp(expression);
 
 //Delete Bookmark
 function deleteBookmark(url) {
