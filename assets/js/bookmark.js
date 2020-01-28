@@ -12,18 +12,8 @@ function saveBookMark(e) {
   //   console.log(WebSiteName);
   //   console.log(WebSiteUrl);
 
-  //Validation
-  if (!WebSiteName || !WebSiteUrl) {
-    alert("Please fill in the form");
-    return false;
-  }
-
-  //Regex Expression
-  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  var regex = new RegExp(expression);
-
-  if (!WebSiteUrl.match(regex)) {
-    alert("Please use a valid URL");
+  // Validation
+  if (!validateForm(WebSiteName, WebSiteUrl)) {
     return false;
   }
 
@@ -110,4 +100,23 @@ function fetchBookmarks() {
       "<h3>" +
       "</div>";
   }
+}
+
+// Validate Form
+function validateForm(WebSiteName, WebSiteUrl) {
+  //Validation
+  if (!WebSiteName || !WebSiteUrl) {
+    alert("Please fill in the form");
+    return false;
+  }
+
+  //Regex Expression
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+
+  if (!WebSiteUrl.match(regex)) {
+    alert("Please use a valid URL");
+    return false;
+  }
+  return true;
 }
